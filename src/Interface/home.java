@@ -31,39 +31,42 @@ public class home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         usernameInput = new javax.swing.JTextField();
-        passwordInput = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
+        inputPassword = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TodoList");
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 0, 40)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Welcome");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(99, 88, 220));
         jLabel2.setText("Todo List");
         jLabel2.setToolTipText("");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 295, -1));
 
-        usernameInput.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        usernameInput.setForeground(new java.awt.Color(128, 128, 128));
+        usernameInput.setBackground(new java.awt.Color(204, 204, 204));
+        usernameInput.setFont(new java.awt.Font("Monospaced", 0, 20)); // NOI18N
+        usernameInput.setForeground(new java.awt.Color(255, 255, 255));
+        usernameInput.setText(" ");
         usernameInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         usernameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameInputActionPerformed(evt);
             }
         });
-
-        passwordInput.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        passwordInput.setForeground(new java.awt.Color(128, 128, 128));
-        passwordInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(usernameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 480, 47));
 
         jButton1.setBackground(new java.awt.Color(99, 88, 220));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Monospaced", 1, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,55 +74,24 @@ public class home extends javax.swing.JFrame {
                 registerActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 113, 50));
 
         lblUsername.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(128, 128, 128));
         lblUsername.setText("Username");
+        getContentPane().add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
         lblPassword.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(128, 128, 128));
         lblPassword.setText("Password");
+        getContentPane().add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsername)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(passwordInput, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usernameInput))
-                            .addComponent(lblPassword))))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUsername)
-                .addGap(12, 12, 12)
-                .addComponent(usernameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(lblPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(jButton1)
-                .addContainerGap(89, Short.MAX_VALUE))
-        );
+        inputPassword.setBackground(new java.awt.Color(204, 204, 204));
+        inputPassword.setText("jPasswordField1");
+        getContentPane().add(inputPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 480, 50));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeimage.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 450));
 
         pack();
         setLocationRelativeTo(null);
@@ -131,8 +103,8 @@ public class home extends javax.swing.JFrame {
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         // TODO add your handling code here:
-        String username = new String(usernameInput.getText());
-        String password = new String(passwordInput.getText());
+        String username = new String(usernameInput.getText().trim());
+        String password = new String(inputPassword.getText().trim());
         if (username.equals("admin") && password.equals("password"))
             {
                 this.setVisible(false);
@@ -180,12 +152,13 @@ public class home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField inputPassword;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JTextField passwordInput;
     private javax.swing.JTextField usernameInput;
     // End of variables declaration//GEN-END:variables
 }

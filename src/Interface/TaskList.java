@@ -37,7 +37,7 @@ public class TaskList extends javax.swing.JFrame {
         titleInput = new javax.swing.JTextField();
         descInput = new javax.swing.JTextField();
         addtask = new javax.swing.JButton();
-        idInput = new javax.swing.JTextField();
+        idXoa = new javax.swing.JTextField();
         taskcomplete = new javax.swing.JButton();
         showTasks = new javax.swing.JButton();
         signout = new javax.swing.JButton();
@@ -47,22 +47,39 @@ public class TaskList extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        validatorName = new javax.swing.JLabel();
+        idInput = new javax.swing.JTextField();
+        validatorDesc = new javax.swing.JLabel();
+        validatorDelete = new javax.swing.JLabel();
+        validatorID = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIntro.setFont(new java.awt.Font("Palatino Linotype", 0, 32)); // NOI18N
+        lblIntro.setForeground(new java.awt.Color(0, 0, 0));
+        lblIntro.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblIntro.setText("Welcome to");
+        getContentPane().add(lblIntro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, 40));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 64)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(99, 88, 220));
         jLabel1.setText("Todo List");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, 60));
 
-        titleInput.setForeground(new java.awt.Color(128, 128, 128));
+        titleInput.setBackground(new java.awt.Color(204, 204, 204));
+        titleInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        titleInput.setForeground(new java.awt.Color(0, 0, 0));
         titleInput.setText("     Complete Work Assignment");
         titleInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(titleInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 509, 44));
 
-        descInput.setForeground(new java.awt.Color(128, 128, 128));
+        descInput.setBackground(new java.awt.Color(204, 204, 204));
+        descInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        descInput.setForeground(new java.awt.Color(0, 0, 0));
         descInput.setText("     Complete The I/O Notes Task");
         descInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         descInput.addActionListener(new java.awt.event.ActionListener() {
@@ -70,35 +87,41 @@ public class TaskList extends javax.swing.JFrame {
                 descInputActionPerformed(evt);
             }
         });
+        getContentPane().add(descInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 509, 152));
 
         addtask.setBackground(new java.awt.Color(99, 88, 220));
         addtask.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         addtask.setForeground(new java.awt.Color(255, 255, 255));
-        addtask.setText("ADD TASK");
+        addtask.setText("THÊM CÔNG VIỆC");
         addtask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addtaskActionPerformed(evt);
             }
         });
+        getContentPane().add(addtask, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 509, 49));
 
-        idInput.setForeground(new java.awt.Color(128, 128, 128));
-        idInput.setText("     ");
-        idInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        idInput.addActionListener(new java.awt.event.ActionListener() {
+        idXoa.setBackground(new java.awt.Color(204, 204, 204));
+        idXoa.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        idXoa.setForeground(new java.awt.Color(0, 0, 0));
+        idXoa.setText("     ");
+        idXoa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        idXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idInputActionPerformed(evt);
+                idXoaActionPerformed(evt);
             }
         });
+        getContentPane().add(idXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 620, 509, 44));
 
         taskcomplete.setBackground(new java.awt.Color(99, 88, 220));
         taskcomplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         taskcomplete.setForeground(new java.awt.Color(255, 255, 255));
-        taskcomplete.setText("Mark Task As Completed");
+        taskcomplete.setText("XÓA HOẶC HOÀN THÀNH CÔNG VIỆC");
         taskcomplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 taskcompleteActionPerformed(evt);
             }
         });
+        getContentPane().add(taskcomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, 508, 49));
 
         showTasks.setBackground(new java.awt.Color(99, 88, 220));
         showTasks.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -109,6 +132,7 @@ public class TaskList extends javax.swing.JFrame {
                 showTasksActionPerformed(evt);
             }
         });
+        getContentPane().add(showTasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, -1, 44));
 
         signout.setBackground(new java.awt.Color(99, 88, 220));
         signout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -119,6 +143,7 @@ public class TaskList extends javax.swing.JFrame {
                 signoutActionPerformed(evt);
             }
         });
+        getContentPane().add(signout, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 920, 92, 44));
 
         showTask2.setBackground(new java.awt.Color(99, 88, 220));
         showTask2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -129,7 +154,11 @@ public class TaskList extends javax.swing.JFrame {
                 showTask2ActionPerformed(evt);
             }
         });
+        getContentPane().add(showTask2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 920, 95, 44));
 
+        TaskList.setBackground(new java.awt.Color(204, 204, 204));
+        TaskList.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        TaskList.setForeground(new java.awt.Color(0, 0, 0));
         TaskList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -138,7 +167,7 @@ public class TaskList extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID", "Task Name", "Task Desc"
+                "ID", "Tên Công Việc", "Mô Tả Công Việc"
             }
         ) {
             Class[] types = new Class [] {
@@ -158,96 +187,59 @@ public class TaskList extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TaskList);
 
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 760, 508, 140));
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel2.setText("Task Title");
+        jLabel2.setText("Tên Công Việc");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel3.setText("Task Description");
+        jLabel3.setText("Mô tả công việc");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel4.setText("Task ID");
+        jLabel4.setText("ID Xóa Hoặc Hoàn Thành ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(157, 157, 157))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblIntro)
-                        .addGap(249, 249, 249))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(showTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(165, 165, 165)
-                        .addComponent(showTask2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(signout, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addtask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(descInput, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
-                                        .addComponent(titleInput, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(taskcomplete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(idInput))))
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblIntro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(titleInput, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(5, 5, 5)
-                .addComponent(descInput, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(addtask, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(12, 12, 12)
-                .addComponent(idInput, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(taskcomplete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(showTasks, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(signout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(showTask2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(99, 88, 220));
+        jLabel5.setText("ID Công Việc");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        validatorName.setForeground(new java.awt.Color(255, 0, 51));
+        validatorName.setToolTipText("");
+        getContentPane().add(validatorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+
+        idInput.setBackground(new java.awt.Color(204, 204, 204));
+        idInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        idInput.setForeground(new java.awt.Color(0, 0, 0));
+        idInput.setText("     ");
+        idInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        idInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idInputActionPerformed(evt);
+            }
+        });
+        getContentPane().add(idInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 509, 44));
+
+        validatorDesc.setForeground(new java.awt.Color(255, 0, 51));
+        validatorDesc.setToolTipText("");
+        getContentPane().add(validatorDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, -1, -1));
+
+        validatorDelete.setForeground(new java.awt.Color(255, 0, 51));
+        validatorDelete.setToolTipText("");
+        getContentPane().add(validatorDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 670, -1, -1));
+
+        validatorID.setForeground(new java.awt.Color(255, 0, 51));
+        validatorID.setToolTipText("");
+        getContentPane().add(validatorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroudTaskList.jpg"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 673, 980));
 
         pack();
         setLocationRelativeTo(null);
@@ -260,12 +252,6 @@ public class TaskList extends javax.swing.JFrame {
         n.setVisible(true);
     }//GEN-LAST:event_signoutActionPerformed
 
-    private void descInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descInputActionPerformed
-        // TODO add your handling code here:
-        JTextField textField = new JTextField();
-        textField.setHorizontalAlignment(JTextField.TOP);
-    }//GEN-LAST:event_descInputActionPerformed
-
     private void showTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTasksActionPerformed
         // TODO add your handling code here:
         showTask();
@@ -273,8 +259,21 @@ public class TaskList extends javax.swing.JFrame {
 
     private void taskcompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskcompleteActionPerformed
         // TODO add your handling code here:
-        int t = Integer.parseInt(idInput.getText().trim());
-
+        String id = idXoa.getText().trim();
+        if(id.trim().isEmpty()){
+            validatorDelete.setText("Vui lòng nhập ID cần xóa!");
+            return;
+        }
+        else{
+            validatorDelete.setText("");
+        }
+        int t;
+        try{
+            t = Integer.parseInt(id);
+        }catch(NumberFormatException e){
+            validatorDelete.setText("Vui lòng nhập ID phải là số nguyên!");
+            return;
+        } 
         try {
             // Establish a connection
             Connection con = conn.getConnection();
@@ -284,7 +283,7 @@ public class TaskList extends javax.swing.JFrame {
             PreparedStatement pst = con.prepareStatement(query);
 
             // Set the TASKID parameter
-            pst.setInt(1, t);
+            pst.setInt(1,t);
 
             // Execute the update
             int rowsAffected = pst.executeUpdate();
@@ -306,37 +305,52 @@ public class TaskList extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_taskcompleteActionPerformed
 
-    private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
+    private void idXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idXoaActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_idInputActionPerformed
 
-    private void showTask2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTask2ActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) TaskList.getModel();
-        model.setRowCount(0);
-        showTask();
-    }//GEN-LAST:event_showTask2ActionPerformed
+    }//GEN-LAST:event_idXoaActionPerformed
 
     private void addtaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addtaskActionPerformed
         // TODO add your handling code here:
-        String title = titleInput.getText();
-        String desc = descInput.getText();
+        String title = titleInput.getText().trim();
+        String desc = descInput.getText().trim();
         String id = idInput.getText().trim();
+        if(title.isEmpty()){
+            validatorName.setText("Vui lòng nhập tên công việc!");
+        }
+        else{
+            validatorName.setText("");
+        }
+        if(desc.isEmpty()){
+            validatorDesc.setText("Vui lòng nhập mô tả công việc!");
+        }
+        else{
+            validatorDesc.setText("");
+        }
+        if(id.isEmpty()){
+            validatorID.setText("Vui lòng nhập ID!");
+        }
+        
+        int idTask;
+        try{
+            idTask = Integer.parseInt(id);
+        }catch(NumberFormatException e){
+            validatorID.setText("Vui lòng nhập ID phải là số nguyên!");
+        }   
         try{
             Connection con = conn.getConnection();
             String query = "INSERT INTO TASKLIST (TASKID,TASKNAME,TASKDESC) VALUES (?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(query);
-            
+
             pst.setInt(1, Integer.parseInt(id)); // Convert id to integer
             pst.setString(2, title);
             pst.setString(3, desc);
-            
+
             int rowsAffected = pst.executeUpdate();
             if (rowsAffected > 0) {
-            JOptionPane.showMessageDialog(null, "Task Added - Refresh to see updated Task List");
+                JOptionPane.showMessageDialog(null, "Task Added - Refresh to see updated Task List");
             } else {
-            JOptionPane.showMessageDialog(null, "Task could not be added.");
+                JOptionPane.showMessageDialog(null, "Task could not be added.");
             }
             pst.close();
             con.close();
@@ -345,6 +359,32 @@ public class TaskList extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_addtaskActionPerformed
+
+    private void descInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descInputActionPerformed
+        // TODO add your handling code here:
+        JTextField textField = new JTextField();
+        textField.setHorizontalAlignment(JTextField.TOP);
+    }//GEN-LAST:event_descInputActionPerformed
+
+    private void showTask2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTask2ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) TaskList.getModel();
+        model.setRowCount(0);
+        idInput.setText("");
+        titleInput.setText("");
+        descInput.setText("");
+        idXoa.setText("");
+        validatorDelete.setText("");
+        validatorID.setText("");
+        validatorName.setText("");
+        validatorDesc.setText("");
+        
+        showTask();
+    }//GEN-LAST:event_showTask2ActionPerformed
+
+    private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idInputActionPerformed
     public Connect conn = new Connect();
     private void showTask(){
         ResultSet rs = null;
@@ -423,10 +463,13 @@ public class TaskList extends javax.swing.JFrame {
     private javax.swing.JButton addtask;
     private javax.swing.JTextField descInput;
     private javax.swing.JTextField idInput;
+    private javax.swing.JTextField idXoa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblIntro;
     private javax.swing.JButton showTask2;
@@ -434,5 +477,9 @@ public class TaskList extends javax.swing.JFrame {
     private javax.swing.JButton signout;
     private javax.swing.JButton taskcomplete;
     private javax.swing.JTextField titleInput;
+    private javax.swing.JLabel validatorDelete;
+    private javax.swing.JLabel validatorDesc;
+    private javax.swing.JLabel validatorID;
+    private javax.swing.JLabel validatorName;
     // End of variables declaration//GEN-END:variables
 }
