@@ -60,7 +60,6 @@ public class TaskList extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIntro.setFont(new java.awt.Font("Palatino Linotype", 0, 32)); // NOI18N
-        lblIntro.setForeground(new java.awt.Color(0, 0, 0));
         lblIntro.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblIntro.setText("Welcome to");
         getContentPane().add(lblIntro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, 40));
@@ -72,14 +71,12 @@ public class TaskList extends javax.swing.JFrame {
 
         titleInput.setBackground(new java.awt.Color(204, 204, 204));
         titleInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        titleInput.setForeground(new java.awt.Color(0, 0, 0));
         titleInput.setText("     Complete Work Assignment");
         titleInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(titleInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 509, 44));
 
         descInput.setBackground(new java.awt.Color(204, 204, 204));
         descInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        descInput.setForeground(new java.awt.Color(0, 0, 0));
         descInput.setText("     Complete The I/O Notes Task");
         descInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         descInput.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +99,6 @@ public class TaskList extends javax.swing.JFrame {
 
         idXoa.setBackground(new java.awt.Color(204, 204, 204));
         idXoa.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        idXoa.setForeground(new java.awt.Color(0, 0, 0));
         idXoa.setText("     ");
         idXoa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         idXoa.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +154,6 @@ public class TaskList extends javax.swing.JFrame {
 
         TaskList.setBackground(new java.awt.Color(204, 204, 204));
         TaskList.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        TaskList.setForeground(new java.awt.Color(0, 0, 0));
         TaskList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -215,7 +210,6 @@ public class TaskList extends javax.swing.JFrame {
 
         idInput.setBackground(new java.awt.Color(204, 204, 204));
         idInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        idInput.setForeground(new java.awt.Color(0, 0, 0));
         idInput.setText("     ");
         idInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         idInput.addActionListener(new java.awt.event.ActionListener() {
