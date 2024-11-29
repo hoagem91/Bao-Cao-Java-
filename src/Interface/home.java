@@ -43,7 +43,6 @@ public class home extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 0, 40)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Welcome");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
@@ -91,7 +90,7 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(inputPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 480, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeimage.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 450));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 460));
 
         pack();
         setLocationRelativeTo(null);
