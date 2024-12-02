@@ -32,125 +32,52 @@ public class TaskList extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblIntro = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        titleInput = new javax.swing.JTextField();
-        descInput = new javax.swing.JTextField();
-        addtask = new javax.swing.JButton();
-        idXoa = new javax.swing.JTextField();
-        taskcomplete = new javax.swing.JButton();
-        showTasks = new javax.swing.JButton();
-        signout = new javax.swing.JButton();
-        showTask2 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TaskList = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         validatorName = new javax.swing.JLabel();
-        idInput = new javax.swing.JTextField();
         validatorDesc = new javax.swing.JLabel();
         validatorDelete = new javax.swing.JLabel();
         validatorID = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TaskList = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        idInput = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        titleInput = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        descInput = new javax.swing.JTextField();
+        addtask = new javax.swing.JButton();
+        taskcomplete1 = new javax.swing.JButton();
+        idXoa = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        idXoa1 = new javax.swing.JTextField();
+        idXoa2 = new javax.swing.JTextField();
+        signout = new javax.swing.JButton();
+        showTask2 = new javax.swing.JButton();
+        showTasks = new javax.swing.JButton();
+        taskcomplete2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        idInput1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblIntro.setFont(new java.awt.Font("Palatino Linotype", 0, 32)); // NOI18N
-        lblIntro.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblIntro.setText("Welcome to");
-        getContentPane().add(lblIntro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, 40));
+        validatorName.setForeground(new java.awt.Color(255, 0, 51));
+        validatorName.setToolTipText("");
+        getContentPane().add(validatorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 64)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel1.setText("Todo List");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, 60));
+        validatorDesc.setForeground(new java.awt.Color(255, 0, 51));
+        validatorDesc.setToolTipText("");
+        getContentPane().add(validatorDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, -1, -1));
 
-        titleInput.setBackground(new java.awt.Color(204, 204, 204));
-        titleInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        titleInput.setText("     Complete Work Assignment");
-        titleInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(titleInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 509, 44));
+        validatorDelete.setForeground(new java.awt.Color(255, 0, 51));
+        validatorDelete.setToolTipText("");
+        getContentPane().add(validatorDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 670, -1, -1));
 
-        descInput.setBackground(new java.awt.Color(204, 204, 204));
-        descInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        descInput.setText("     Complete The I/O Notes Task");
-        descInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        descInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                descInputActionPerformed(evt);
-            }
-        });
-        getContentPane().add(descInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 509, 152));
-
-        addtask.setBackground(new java.awt.Color(99, 88, 220));
-        addtask.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addtask.setForeground(new java.awt.Color(255, 255, 255));
-        addtask.setText("THÊM CÔNG VIỆC");
-        addtask.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addtaskActionPerformed(evt);
-            }
-        });
-        getContentPane().add(addtask, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 509, 49));
-
-        idXoa.setBackground(new java.awt.Color(204, 204, 204));
-        idXoa.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        idXoa.setText("     ");
-        idXoa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        idXoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idXoaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(idXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 620, 509, 44));
-
-        taskcomplete.setBackground(new java.awt.Color(99, 88, 220));
-        taskcomplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        taskcomplete.setForeground(new java.awt.Color(255, 255, 255));
-        taskcomplete.setText("XÓA HOẶC HOÀN THÀNH CÔNG VIỆC");
-        taskcomplete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                taskcompleteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(taskcomplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, 508, 49));
-
-        showTasks.setBackground(new java.awt.Color(99, 88, 220));
-        showTasks.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        showTasks.setForeground(new java.awt.Color(255, 255, 255));
-        showTasks.setText("Show Tasks");
-        showTasks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showTasksActionPerformed(evt);
-            }
-        });
-        getContentPane().add(showTasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 920, -1, 44));
-
-        signout.setBackground(new java.awt.Color(99, 88, 220));
-        signout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        signout.setForeground(new java.awt.Color(255, 255, 255));
-        signout.setText("Sign Out");
-        signout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signoutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(signout, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 920, 92, 44));
-
-        showTask2.setBackground(new java.awt.Color(99, 88, 220));
-        showTask2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        showTask2.setForeground(new java.awt.Color(255, 255, 255));
-        showTask2.setText("Refresh");
-        showTask2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showTask2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(showTask2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 920, 95, 44));
+        validatorID.setForeground(new java.awt.Color(255, 0, 51));
+        validatorID.setToolTipText("");
+        getContentPane().add(validatorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         TaskList.setBackground(new java.awt.Color(204, 204, 204));
         TaskList.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -182,31 +109,12 @@ public class TaskList extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TaskList);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 760, 508, 140));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel2.setText("Tên Công Việc");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel3.setText("Mô tả công việc");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel4.setText("ID Xóa Hoặc Hoàn Thành ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, -1, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1260, 190));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel5.setText("ID Công Việc");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
-
-        validatorName.setForeground(new java.awt.Color(255, 0, 51));
-        validatorName.setToolTipText("");
-        getContentPane().add(validatorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+        jLabel5.setText("Tìm kiếm");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 90, -1));
 
         idInput.setBackground(new java.awt.Color(204, 204, 204));
         idInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -217,92 +125,178 @@ public class TaskList extends javax.swing.JFrame {
                 idInputActionPerformed(evt);
             }
         });
-        getContentPane().add(idInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 509, 44));
+        getContentPane().add(idInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 400, 44));
 
-        validatorDesc.setForeground(new java.awt.Color(255, 0, 51));
-        validatorDesc.setToolTipText("");
-        getContentPane().add(validatorDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(99, 88, 220));
+        jLabel2.setText("Tên Công Việc");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
-        validatorDelete.setForeground(new java.awt.Color(255, 0, 51));
-        validatorDelete.setToolTipText("");
-        getContentPane().add(validatorDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 670, -1, -1));
+        titleInput.setBackground(new java.awt.Color(204, 204, 204));
+        titleInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        titleInput.setText("     Complete Work Assignment");
+        titleInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(titleInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 400, 44));
 
-        validatorID.setForeground(new java.awt.Color(255, 0, 51));
-        validatorID.setToolTipText("");
-        getContentPane().add(validatorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(99, 88, 220));
+        jLabel3.setText("Mô tả công việc");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroudTaskList.jpg"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 673, 980));
+        descInput.setBackground(new java.awt.Color(204, 204, 204));
+        descInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        descInput.setText("     Complete The I/O Notes Task");
+        descInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        descInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descInputActionPerformed(evt);
+            }
+        });
+        getContentPane().add(descInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 400, 40));
+
+        addtask.setBackground(new java.awt.Color(99, 88, 220));
+        addtask.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addtask.setForeground(new java.awt.Color(255, 255, 255));
+        addtask.setText("THÊM CÔNG VIỆC");
+        addtask.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addtaskActionPerformed(evt);
+            }
+        });
+        getContentPane().add(addtask, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 160, 49));
+
+        taskcomplete1.setBackground(new java.awt.Color(99, 88, 220));
+        taskcomplete1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        taskcomplete1.setForeground(new java.awt.Color(255, 255, 255));
+        taskcomplete1.setText("XÓA CÔNG VIỆC");
+        taskcomplete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taskcomplete1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(taskcomplete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, 170, 49));
+
+        idXoa.setBackground(new java.awt.Color(204, 204, 204));
+        idXoa.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        idXoa.setText("     ");
+        idXoa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        idXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idXoaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(idXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 440, 210, 44));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(99, 88, 220));
+        jLabel6.setText("ID Công Việc Hoàn Thành ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(99, 88, 220));
+        jLabel7.setText("Ngày Khởi Tạo");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(99, 88, 220));
+        jLabel8.setText("Ngày Hoàn Thành");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, -1, -1));
+
+        idXoa1.setBackground(new java.awt.Color(204, 204, 204));
+        idXoa1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        idXoa1.setText("     ");
+        idXoa1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        idXoa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idXoa1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(idXoa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 280, 210, 44));
+
+        idXoa2.setBackground(new java.awt.Color(204, 204, 204));
+        idXoa2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        idXoa2.setText("     ");
+        idXoa2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        idXoa2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idXoa2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(idXoa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 360, 210, 44));
+
+        signout.setBackground(new java.awt.Color(99, 88, 220));
+        signout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        signout.setForeground(new java.awt.Color(255, 255, 255));
+        signout.setText("Sign Out");
+        signout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(signout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 530, 140, 50));
+
+        showTask2.setBackground(new java.awt.Color(99, 88, 220));
+        showTask2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        showTask2.setForeground(new java.awt.Color(255, 255, 255));
+        showTask2.setText("Refresh");
+        showTask2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showTask2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(showTask2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 530, 140, 50));
+
+        showTasks.setBackground(new java.awt.Color(99, 88, 220));
+        showTasks.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        showTasks.setForeground(new java.awt.Color(255, 255, 255));
+        showTasks.setText("Show Tasks");
+        showTasks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showTasksActionPerformed(evt);
+            }
+        });
+        getContentPane().add(showTasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 140, 50));
+
+        taskcomplete2.setBackground(new java.awt.Color(99, 88, 220));
+        taskcomplete2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        taskcomplete2.setForeground(new java.awt.Color(255, 255, 255));
+        taskcomplete2.setText("SỬA CÔNG VIỆC");
+        taskcomplete2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taskcomplete2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(taskcomplete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, 170, 49));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(99, 88, 220));
+        jLabel9.setText("ID Công Việc");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 90, -1));
+
+        idInput1.setBackground(new java.awt.Color(204, 204, 204));
+        idInput1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        idInput1.setText("     ");
+        idInput1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        idInput1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idInput1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(idInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 400, 44));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signoutActionPerformed
+    private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        home n = new home();
-        n.setVisible(true);
-    }//GEN-LAST:event_signoutActionPerformed
+    }//GEN-LAST:event_idInputActionPerformed
 
-    private void showTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTasksActionPerformed
+    private void descInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descInputActionPerformed
         // TODO add your handling code here:
-        showTask();
-    }//GEN-LAST:event_showTasksActionPerformed
-
-    private void taskcompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskcompleteActionPerformed
-        // TODO add your handling code here:
-        String id = idXoa.getText().trim();
-        if(id.trim().isEmpty()){
-            validatorDelete.setText("Vui lòng nhập ID cần xóa!");
-            return;
-        }
-        else{
-            validatorDelete.setText("");
-        }
-        int t;
-        try{
-            t = Integer.parseInt(id);
-        }catch(NumberFormatException e){
-            validatorDelete.setText("Vui lòng nhập ID phải là số nguyên!");
-            return;
-        } 
-        try {
-            // Establish a connection
-            Connection con = conn.getConnection();
-
-            // Use PreparedStatement for better security and to avoid SQL injection
-            String query = "DELETE FROM TASKLIST WHERE TASKID = ?";
-            PreparedStatement pst = con.prepareStatement(query);
-
-            // Set the TASKID parameter
-            pst.setInt(1,t);
-
-            // Execute the update
-            int rowsAffected = pst.executeUpdate();
-
-            // Show a message if the task was deleted successfully
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Task Deleted - Refresh to see updated Task List");
-            } else {
-                JOptionPane.showMessageDialog(null, "No task found with the specified ID.");
-            }
-
-            // Close the statement and connection
-            pst.close();
-            con.close();
-
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-            System.out.println(e.getMessage());
-        }
-    }//GEN-LAST:event_taskcompleteActionPerformed
-
-    private void idXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idXoaActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_idXoaActionPerformed
+        JTextField textField = new JTextField();
+        textField.setHorizontalAlignment(JTextField.TOP);
+    }//GEN-LAST:event_descInputActionPerformed
 
     private void addtaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addtaskActionPerformed
         // TODO add your handling code here:
@@ -324,13 +318,13 @@ public class TaskList extends javax.swing.JFrame {
         if(id.isEmpty()){
             validatorID.setText("Vui lòng nhập ID!");
         }
-        
+
         int idTask;
         try{
             idTask = Integer.parseInt(id);
         }catch(NumberFormatException e){
             validatorID.setText("Vui lòng nhập ID phải là số nguyên!");
-        }   
+        }
         try{
             Connection con = conn.getConnection();
             String query = "INSERT INTO TASKLIST (TASKID,TASKNAME,TASKDESC) VALUES (?, ?, ?)";
@@ -354,11 +348,28 @@ public class TaskList extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addtaskActionPerformed
 
-    private void descInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descInputActionPerformed
+    private void taskcomplete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskcomplete1ActionPerformed
         // TODO add your handling code here:
-        JTextField textField = new JTextField();
-        textField.setHorizontalAlignment(JTextField.TOP);
-    }//GEN-LAST:event_descInputActionPerformed
+    }//GEN-LAST:event_taskcomplete1ActionPerformed
+
+    private void idXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idXoaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idXoaActionPerformed
+
+    private void idXoa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idXoa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idXoa1ActionPerformed
+
+    private void idXoa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idXoa2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idXoa2ActionPerformed
+
+    private void signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signoutActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        home n = new home();
+        n.setVisible(true);
+    }//GEN-LAST:event_signoutActionPerformed
 
     private void showTask2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTask2ActionPerformed
         // TODO add your handling code here:
@@ -372,13 +383,22 @@ public class TaskList extends javax.swing.JFrame {
         validatorID.setText("");
         validatorName.setText("");
         validatorDesc.setText("");
-        
+
         showTask();
     }//GEN-LAST:event_showTask2ActionPerformed
 
-    private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
+    private void showTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTasksActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idInputActionPerformed
+        showTask();
+    }//GEN-LAST:event_showTasksActionPerformed
+
+    private void taskcomplete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskcomplete2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_taskcomplete2ActionPerformed
+
+    private void idInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInput1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idInput1ActionPerformed
     public Connect conn = new Connect();
     private void showTask(){
         ResultSet rs = null;
@@ -457,19 +477,23 @@ public class TaskList extends javax.swing.JFrame {
     private javax.swing.JButton addtask;
     private javax.swing.JTextField descInput;
     private javax.swing.JTextField idInput;
+    private javax.swing.JTextField idInput1;
     private javax.swing.JTextField idXoa;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField idXoa1;
+    private javax.swing.JTextField idXoa2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblIntro;
     private javax.swing.JButton showTask2;
     private javax.swing.JButton showTasks;
     private javax.swing.JButton signout;
-    private javax.swing.JButton taskcomplete;
+    private javax.swing.JButton taskcomplete1;
+    private javax.swing.JButton taskcomplete2;
     private javax.swing.JTextField titleInput;
     private javax.swing.JLabel validatorDelete;
     private javax.swing.JLabel validatorDesc;
