@@ -4,6 +4,9 @@
  */
 package Interface;
 
+import database.Connect;
+import javax.swing.JOptionPane;
+import java.sql.*;
 /**
  *
  * @author Admin
@@ -31,10 +34,11 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        btnSignup = new javax.swing.JButton();
+        txtUsername = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtConfirm = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,53 +68,124 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabel8.setText("Confirm");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
+        btnSignup.setBackground(new java.awt.Color(99, 88, 220));
+        btnSignup.setFont(new java.awt.Font("Monospaced", 1, 20)); // NOI18N
+        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignup.setText("SIGN UP");
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 120, 40));
+
+        txtUsername.setBackground(new java.awt.Color(204, 204, 204));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 480, 47));
+
+        txtPassword.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 480, 47));
+
+        txtConfirm.setBackground(new java.awt.Color(204, 204, 204));
+        txtConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConfirmActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 480, 47));
+
         jButton1.setBackground(new java.awt.Color(99, 88, 220));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Monospaced", 1, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("SIGN UP");
+        jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, 30));
-
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 480, 47));
-
-        jPasswordField1.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 480, 47));
-
-        jPasswordField2.setBackground(new java.awt.Color(204, 204, 204));
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 480, 47));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 120, 40));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeimage.png"))); // NOI18N
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 790, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 790, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+    private void txtConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
+    }//GEN-LAST:event_txtConfirmActionPerformed
+
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+        // TODO add your handling code here:
+//        khai báo biến int cho nó 
+        int dk = JOptionPane.showConfirmDialog(this, "Bạn có muốn đăng kí", "Confirm", JOptionPane.YES_NO_OPTION);
+        if(dk != JOptionPane.YES_OPTION) {
+            return;
+        }
+        
+        String username = txtUsername.getText();
+        String password = new String(txtPassword.getPassword());
+        String confirmPassword = new String(txtConfirm.getPassword());
+        
+        // Kiểm tra dữ liệu nhập vào
+        if (username.equals("") || password.equals("") || confirmPassword.equals("")) {
+            JOptionPane.showMessageDialog(this, "Không để thông tin trống");
+        } else if (password.equals(confirmPassword)) {
+            try {
+                // Kết nối cơ sở dữ liệu
+                Connect connect = new Connect();
+                Connection conn = connect.getConnection();
+
+                if (conn == null) {
+                    JOptionPane.showMessageDialog(this, "Không thể kết nối đến cơ sở dữ liệu");
+                    return;
+                }
+
+                // Câu lệnh SQL để thêm tài khoản vào cơ sở dữ liệu
+                String sql = "INSERT INTO ACCOUNT (USERNAME, PASS, CONFIRM) VALUES (?, ?, ?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+
+                // Thiết lập các tham số cho câu lệnh SQL
+                ps.setString(1, username);
+                ps.setString(2, password);
+                ps.setString(3, confirmPassword);
+
+                // Thực thi câu lệnh SQL
+                int n = ps.executeUpdate();
+                if (n != 0) {
+                    JOptionPane.showMessageDialog(this, "Đăng ký thành công");
+                    
+                    this.setVisible(false);
+                    home loginForm = new home(username, password);
+                    loginForm.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Đăng ký thất bại");
+                }
+
+                // Đóng kết nối sau khi sử dụng
+                conn.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Lỗi khi kết nối cơ sở dữ liệu: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Mật khẩu xác nhận không khớp!");
+        }
+    }//GEN-LAST:event_btnSignupActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        home homeForm = new home();
+        homeForm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -149,6 +224,7 @@ public class SignUpForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSignup;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
@@ -156,8 +232,8 @@ public class SignUpForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txtConfirm;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
