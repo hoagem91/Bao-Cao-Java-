@@ -4,7 +4,9 @@
  */
 package Interface;
 
+import database.Connect;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /**
  *
@@ -12,9 +14,21 @@ import javax.swing.JOptionPane;
  */
 public class home extends javax.swing.JFrame {
 
+    private Connection conn;
+    private PreparedStatement ps;
+
     /**
      * Creates new form home
      */
+    
+    public home(String username, String password) {
+        
+        // Tự động điền thông tin tài khoản
+        initComponents();
+        usernameInput.setText(username);
+        inputPassword.setText(password);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     public home() {
         initComponents();
     }
@@ -35,6 +49,7 @@ public class home extends javax.swing.JFrame {
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         inputPassword = new javax.swing.JPasswordField();
+        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,7 +88,7 @@ public class home extends javax.swing.JFrame {
                 registerActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 113, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 120, 40));
 
         lblUsername.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(128, 128, 128));
@@ -86,8 +101,23 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
         inputPassword.setBackground(new java.awt.Color(204, 204, 204));
-        inputPassword.setText("jPasswordField1");
+        inputPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPasswordActionPerformed(evt);
+            }
+        });
         getContentPane().add(inputPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 480, 50));
+
+        jButton2.setBackground(new java.awt.Color(99, 88, 220));
+        jButton2.setFont(new java.awt.Font("Monospaced", 1, 20)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("SIGN UP");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 120, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeimage.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 460));
@@ -102,18 +132,63 @@ public class home extends javax.swing.JFrame {
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         // TODO add your handling code here:
-        String username = new String(usernameInput.getText().trim());
-        String password = new String(inputPassword.getText().trim());
-        if (username.equals("admin") && password.equals("password"))
-            {
-                this.setVisible(false);
-                TaskList n = new TaskList ();
-                n.setVisible(true);
+        // Lấy thông tin đăng nhập từ người dùng
+        String username = usernameInput.getText().trim();
+        String password = new String(inputPassword.getPassword()).trim();
+        
+        // Kiểm tra nếu thông tin đăng nhập không để trống
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập tên đăng nhập và mật khẩu.");
+            return;
+        }
+
+        // Kiểm tra đăng nhập từ cơ sở dữ liệu
+        try {
+            Connect connect = new Connect();
+            conn = connect.getConnection(); // Kết nối cơ sở dữ liệu
+
+            if (conn == null) {
+                JOptionPane.showMessageDialog(this, "Không thể kết nối đến cơ sở dữ liệu");
+                return;
             }
-        else{
-                JOptionPane.showMessageDialog(null, "Incorrect Password");
+            
+            // Câu lệnh SQL để kiểm tra tài khoản và mật khẩu
+            String sql = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASS = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                // Đăng nhập thành công
+                JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                this.setVisible(false); // Ẩn trang đăng nhập
+                TaskList taskListForm = new TaskList(); // Chuyển sang màn hình danh sách công việc
+                taskListForm.setVisible(true);
+            } else {
+                // Đăng nhập thất bại
+                JOptionPane.showMessageDialog(this, "Tên đăng nhập hoặc mật khẩu không đúng!");
+            }
+            
+            rs.close();
+            ps.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Lỗi khi kết nối cơ sở dữ liệu: " + e.getMessage());
         }
     }//GEN-LAST:event_registerActionPerformed
+
+    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPasswordActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        SignUpForm signUp = new SignUpForm();
+        signUp.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +228,7 @@ public class home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField inputPassword;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
