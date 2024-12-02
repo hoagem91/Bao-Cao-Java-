@@ -77,7 +77,7 @@ public class SignUpForm extends javax.swing.JFrame {
                 btnSignupActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 120, 40));
+        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 120, 40));
 
         txtUsername.setBackground(new java.awt.Color(204, 204, 204));
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -107,11 +107,11 @@ public class SignUpForm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 120, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 120, 40));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeimage.png"))); // NOI18N
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 790, 520));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 790, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
