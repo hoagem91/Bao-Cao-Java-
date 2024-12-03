@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -28,6 +29,7 @@ public class TodoListMain extends javax.swing.JFrame {
      */
     public TodoListMain() {
         initComponents();
+        showTask();
         showDate();
     }
 
@@ -57,7 +59,6 @@ public class TodoListMain extends javax.swing.JFrame {
         addtask = new javax.swing.JButton();
         deleteTask = new javax.swing.JButton();
         updateTask = new javax.swing.JButton();
-        showTasks = new javax.swing.JButton();
         showTask2 = new javax.swing.JButton();
         signout = new javax.swing.JButton();
         validatordecs = new javax.swing.JLabel();
@@ -66,6 +67,7 @@ public class TodoListMain extends javax.swing.JFrame {
         deadlineValidator = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1270, 680));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -110,6 +112,11 @@ public class TodoListMain extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        TaskList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TaskListMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(TaskList);
@@ -224,17 +231,6 @@ public class TodoListMain extends javax.swing.JFrame {
         });
         getContentPane().add(updateTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, 170, 49));
 
-        showTasks.setBackground(new java.awt.Color(99, 88, 220));
-        showTasks.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        showTasks.setForeground(new java.awt.Color(255, 255, 255));
-        showTasks.setText("Show Tasks");
-        showTasks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showTasksActionPerformed(evt);
-            }
-        });
-        getContentPane().add(showTasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 140, 50));
-
         showTask2.setBackground(new java.awt.Color(99, 88, 220));
         showTask2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         showTask2.setForeground(new java.awt.Color(255, 255, 255));
@@ -244,7 +240,7 @@ public class TodoListMain extends javax.swing.JFrame {
                 showTask2ActionPerformed(evt);
             }
         });
-        getContentPane().add(showTask2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 530, 140, 50));
+        getContentPane().add(showTask2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, 140, 50));
 
         signout.setBackground(new java.awt.Color(99, 88, 220));
         signout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -255,7 +251,7 @@ public class TodoListMain extends javax.swing.JFrame {
                 signoutActionPerformed(evt);
             }
         });
-        getContentPane().add(signout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 530, 140, 50));
+        getContentPane().add(signout, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 530, 140, 50));
         getContentPane().add(validatordecs, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
         getContentPane().add(validatorId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, -1));
         getContentPane().add(validatorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
@@ -266,34 +262,34 @@ public class TodoListMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public Connect conn = new Connect();
+    
     private void showTask() {
-    TaskDAO taskDAO = new TaskDAO(); // Tạo đối tượng TaskDAO
-    List<Task> tasks = taskDAO.getAllTasks(); // Lấy danh sách các task
+        TaskDAO taskDAO = new TaskDAO(); // Tạo đối tượng TaskDAO
+        List<Task> tasks = taskDAO.getAllTasks(); // Lấy danh sách các task
 
-    DefaultTableModel model = (DefaultTableModel) TaskList.getModel();
-    
-    // Xóa các hàng cũ để tránh trùng lặp dữ liệu
-    model.setRowCount(0);
-    
-    // Cập nhật tiêu đề cột (có thể sử dụng phương thức từ TaskDAO hoặc tự định nghĩa)
-    String[] columnNames = {"Task ID", "Task Name", "Description", "Create Date", "Deadline"};
-    model.setColumnIdentifiers(columnNames);
-    
-    // Thêm dữ liệu vào bảng từ danh sách task
-    for (Task task : tasks) {
-        Object[] row = new Object[5]; // Vì có 6 cột
-        row[0] = task.getId();
-        row[1] = task.getName();
-        row[2] = task.getDescription();
-        row[3] = task.getCreateDate();
-        row[4] = task.getDeadline();
-        
-        model.addRow(row); // Thêm từng dòng vào bảng
-    }
+        DefaultTableModel model = (DefaultTableModel) TaskList.getModel();
 
-    // Cập nhật trạng thái các nút
-    signout.setVisible(true);
-    showTasks.setVisible(false);
+        // Xóa các hàng cũ để tránh trùng lặp dữ liệu
+        model.setRowCount(0);
+
+        // Cập nhật tiêu đề cột (có thể sử dụng phương thức từ TaskDAO hoặc tự định nghĩa)
+        String[] columnNames = {"Task ID", "Task Name", "Description", "Create Date", "Deadline"};
+        model.setColumnIdentifiers(columnNames);
+
+        // Thêm dữ liệu vào bảng từ danh sách task
+        for (Task task : tasks) {
+            Object[] row = new Object[5]; // Vì có 6 cột
+            row[0] = task.getId();
+            row[1] = task.getName();
+            row[2] = task.getDescription();
+            row[3] = task.getCreateDate();
+            row[4] = task.getDeadline();
+
+            model.addRow(row); // Thêm từng dòng vào bảng
+        }
+
+        // Cập nhật trạng thái các nút
+        signout.setVisible(true);
     }
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -347,11 +343,11 @@ public class TodoListMain extends javax.swing.JFrame {
             validatorId.setText("Vui lòng nhập ID phải là số nguyên!");
         }
         try {
-        new SimpleDateFormat("dd-MM-yyyy").parse(deadLine.getText().trim());
-        deadlineValidator.setText("");
+            new SimpleDateFormat("dd-MM-yyyy").parse(deadLine.getText().trim());
+            deadlineValidator.setText("");
         } catch (ParseException e) {
-        deadlineValidator.setText("Ngày không hợp lệ (dd-MM-yyyy)!");
-        deadlineValidator.setForeground(Color.RED);
+            deadlineValidator.setText("Ngày không hợp lệ (dd-MM-yyyy)!");
+            deadlineValidator.setForeground(Color.RED);
         }
 
         Task task = new Task(idTask,title,desc,createdate,deadline);
@@ -370,16 +366,104 @@ public class TodoListMain extends javax.swing.JFrame {
 
     private void deleteTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTaskActionPerformed
         // TODO add your handling code here:
+        String id = idInput.getText().trim();
+        int idTask=0;
+        try{
+            idTask = Integer.parseInt(id);
+        }catch(NumberFormatException e){
+            validatorId.setText("Vui lòng nhập ID phải là số nguyên!");
+        }
+        try{
+            TaskDAO taskDAO = new TaskDAO();
+            if(!taskDAO.isTaskExist(idTask)){
+                JOptionPane.showMessageDialog(null, 
+                        "Không tìm thấy công việc với mã ID " + idTask,
+                        "Cảnh báo",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+                
+            }
+            boolean success = taskDAO.deleteTask(idTask);
+            if(success){
+                JOptionPane.showMessageDialog(null, 
+                        "Đã xóa công việc với mã ID" + idTask,
+                        "Thông báo",
+                        JOptionPane.INFORMATION_MESSAGE);
+                showTask();
+            }
+            else{
+                JOptionPane.showMessageDialog(null,
+                        "Xóa công việc thất bại",
+                        "Lỗi",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,
+                    "Đã xảy ra lỗi " + e.getMessage(),
+                    "Lỗi",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_deleteTaskActionPerformed
 
     private void updateTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateTaskActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_updateTaskActionPerformed
+        String title = titleInput.getText().trim();
+        String desc = descInput.getText().trim();
+        String id = idInput.getText().trim();
+        String createdate = createDate.getText().trim();
+        String deadline = this.deadLine.getText().trim();
+        if(title.isEmpty()){
+            validatorName.setText("Vui lòng nhập tên công việc!");
+            validatorName.setBackground(Color.RED);
+        }
+        else{
+            validatorName.setText("");
+        }
+        if(desc.isEmpty()){
+            validatordecs.setText("Vui lòng nhập mô tả công việc!");
+            validatordecs.setBackground(Color.RED);
+        }
+        else{
+            validatordecs.setText("");
+        }
+        if(id.isEmpty()){
+            validatorId.setText("Vui lòng nhập ID!");
+        }
 
-    private void showTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTasksActionPerformed
-        // TODO add your handling code here:
-        showTask();
-    }//GEN-LAST:event_showTasksActionPerformed
+        int idTask = 0;
+        try{
+            idTask = Integer.parseInt(id);
+        }catch(NumberFormatException e){
+            validatorId.setText("Vui lòng nhập ID phải là số nguyên!");
+            validatorId.setBackground(Color.RED);
+        }
+        try {
+            new SimpleDateFormat("dd-MM-yyyy").parse(deadLine.getText().trim());
+            deadlineValidator.setText("");
+        } catch (ParseException e) {
+            deadlineValidator.setText("Ngày không hợp lệ (dd-MM-yyyy)!");
+            deadlineValidator.setForeground(Color.RED);
+        }
+        Task task = new Task(idTask,title,desc,createdate,deadline);
+        try{
+            TaskDAO taskDAO = new TaskDAO();
+            boolean success = taskDAO.updateTask(task);
+            if(success){
+                JOptionPane.showMessageDialog(null, 
+                        "Đã sửa công việc có ID " +idTask,
+                        "Thông báo",
+                        JOptionPane.INFORMATION_MESSAGE);
+                showTask();
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,
+                    "Sửa công việc có ID " + idTask + "thất bại!",
+                    "Thông báo",
+                    JOptionPane.WARNING_MESSAGE);
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_updateTaskActionPerformed
 
     private void showTask2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTask2ActionPerformed
                                           
@@ -388,12 +472,14 @@ public class TodoListMain extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) TaskList.getModel();
         model.setRowCount(0);
         txtSearch.setText("");
+        idInput.setText("");
         titleInput.setText("");
         descInput.setText("");
         deadLine.setText("");
         validatorId.setText("");
         validatorName.setText("");
         validatordecs.setText("");
+        deadlineValidator.setText("");
 
         showTask();
         }catch(ClassCastException e){
@@ -414,6 +500,24 @@ public class TodoListMain extends javax.swing.JFrame {
         home n = new home();
         n.setVisible(true);
     }//GEN-LAST:event_signoutActionPerformed
+
+    private void TaskListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TaskListMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = this.TaskList.getSelectedRow();
+        if(selectedRow != -1){
+            int idTask = (int) TaskList.getValueAt(selectedRow, 0);
+            String taskName = (String) TaskList.getValueAt(selectedRow, 1);
+            String taskDecs = (String) TaskList.getValueAt(selectedRow, 2);
+            String taskCreDate = (String) TaskList.getValueAt(selectedRow, 3);
+            String taskEndDate = (String) TaskList.getValueAt(selectedRow, 4);
+            
+            idInput.setText(String.valueOf(idTask));
+            titleInput.setText(String.valueOf(taskName));
+            descInput.setText(String.valueOf(taskDecs));
+            createDate.setText(String.valueOf(taskCreDate));
+            deadLine.setText(String.valueOf(taskEndDate));
+        }
+    }//GEN-LAST:event_TaskListMouseClicked
 
     /**
      * @param args the command line arguments
@@ -467,7 +571,6 @@ public class TodoListMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton showTask2;
-    private javax.swing.JButton showTasks;
     private javax.swing.JButton signout;
     private javax.swing.JTextField titleInput;
     private javax.swing.JTextField txtSearch;
