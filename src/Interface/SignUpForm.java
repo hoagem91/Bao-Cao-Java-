@@ -45,28 +45,29 @@ public class SignUpForm extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Perpetua", 1, 40)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Welcome");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(99, 88, 220));
-        jLabel5.setText("Todo App");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        jLabel5.setText("Register");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(128, 128, 128));
         jLabel6.setText("Username");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(128, 128, 128));
         jLabel7.setText("Password");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(128, 128, 128));
         jLabel8.setText("Confirm");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
         btnSignup.setBackground(new java.awt.Color(99, 88, 220));
         btnSignup.setFont(new java.awt.Font("Monospaced", 1, 20)); // NOI18N
@@ -77,7 +78,7 @@ public class SignUpForm extends javax.swing.JFrame {
                 btnSignupActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 120, 40));
+        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 120, 50));
 
         txtUsername.setBackground(new java.awt.Color(204, 204, 204));
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -85,10 +86,10 @@ public class SignUpForm extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 480, 47));
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 480, 47));
 
         txtPassword.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 480, 47));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 480, 47));
 
         txtConfirm.setBackground(new java.awt.Color(204, 204, 204));
         txtConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +97,7 @@ public class SignUpForm extends javax.swing.JFrame {
                 txtConfirmActionPerformed(evt);
             }
         });
-        getContentPane().add(txtConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 480, 47));
+        getContentPane().add(txtConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 480, 47));
 
         jButton1.setBackground(new java.awt.Color(99, 88, 220));
         jButton1.setFont(new java.awt.Font("Monospaced", 1, 20)); // NOI18N
@@ -107,11 +108,11 @@ public class SignUpForm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 120, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 120, 50));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeimage.png"))); // NOI18N
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 790, 520));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
