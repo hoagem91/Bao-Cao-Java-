@@ -116,5 +116,13 @@ public class TaskDAO {
             return false;
         }
     }
+    
+    // Phương thức tìm kiếm công việc theo ID
+    public ResultSet searchTaskById(Connection conn, int id) throws SQLException {
+        String query = "SELECT * FROM TASKLIST WHERE TASKID = ?";
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setInt(1, id);
+        return pstmt.executeQuery();
+    }
 
 }

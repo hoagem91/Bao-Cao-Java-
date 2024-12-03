@@ -65,6 +65,7 @@ public class TodoListMain extends javax.swing.JFrame {
         validatorId = new javax.swing.JLabel();
         validatorName = new javax.swing.JLabel();
         deadlineValidator = new javax.swing.JLabel();
+        validatorSearch = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1270, 680));
@@ -121,7 +122,7 @@ public class TodoListMain extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TaskList);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1270, 190));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1270, 190));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(99, 88, 220));
@@ -258,6 +259,7 @@ public class TodoListMain extends javax.swing.JFrame {
 
         deadlineValidator.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(deadlineValidator, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 490, -1, -1));
+        getContentPane().add(validatorSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -294,6 +296,55 @@ public class TodoListMain extends javax.swing.JFrame {
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
+        // Lấy giá trị từ ô tìm kiếm
+        String searchText = txtSearch.getText().trim();
+
+        // Kiểm tra nếu không nhập gì
+        if (searchText.isEmpty()) {
+            validatorSearch.setText("Vui lòng nhập ID công việc cần tìm!");
+            validatorName.setBackground(Color.RED);
+            return;
+        }
+
+        try {
+            // Chuyển đổi ID từ chuỗi sang số
+            int id = Integer.parseInt(searchText);
+
+            // Kết nối cơ sở dữ liệu
+            Connection con = conn.getConnection(); // Giả sử bạn đã có lớp `conn` để kết nối DB
+            TaskDAO taskDAO = new TaskDAO();
+            ResultSet rs = taskDAO.searchTaskById(con, id);
+
+            // Lấy mô hình bảng
+            DefaultTableModel model = (DefaultTableModel) TaskList.getModel();
+
+            // Xóa toàn bộ dữ liệu trên bảng
+            model.setRowCount(0);
+
+            // Kiểm tra và hiển thị kết quả
+            if (rs.next()) {
+                // Lấy dữ liệu từ ResultSet
+                String taskID = rs.getString("TASKID");
+                String taskName = rs.getString("TASKNAME");
+                String taskDesc = rs.getString("TASKDESC");
+                String createdDate = rs.getString("CREATEDATE");
+                String completedDate = rs.getString("DEADLINE");
+
+                // Thêm dữ liệu vào bảng
+                model.addRow(new Object[]{taskID, taskName, taskDesc, createdDate, completedDate});
+            } else {
+                JOptionPane.showMessageDialog(this, "Không tìm thấy công việc với ID: " + id);
+            }
+
+            // Đóng kết nối
+            rs.close();
+            con.close();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "ID phải là một số nguyên hợp lệ!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Lỗi cơ sở dữ liệu: " + e.getMessage());
+        }
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
@@ -577,6 +628,7 @@ public class TodoListMain extends javax.swing.JFrame {
     private javax.swing.JButton updateTask;
     private javax.swing.JLabel validatorId;
     private javax.swing.JLabel validatorName;
+    private javax.swing.JLabel validatorSearch;
     private javax.swing.JLabel validatordecs;
     // End of variables declaration//GEN-END:variables
 }
