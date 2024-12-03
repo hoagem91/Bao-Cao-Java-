@@ -66,6 +66,7 @@ public class TodoListMain extends javax.swing.JFrame {
         validatorName = new javax.swing.JLabel();
         deadlineValidator = new javax.swing.JLabel();
         validatorSearch = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1270, 680));
@@ -122,12 +123,12 @@ public class TodoListMain extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TaskList);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1270, 190));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 1230, 190));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(99, 88, 220));
         jLabel9.setText("ID Công Việc");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 90, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 90, -1));
 
         idInput.setBackground(new java.awt.Color(204, 204, 204));
         idInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -143,7 +144,7 @@ public class TodoListMain extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(99, 88, 220));
         jLabel2.setText("Tên Công Việc");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
 
         titleInput.setBackground(new java.awt.Color(204, 204, 204));
         titleInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -154,7 +155,7 @@ public class TodoListMain extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(99, 88, 220));
         jLabel3.setText("Mô tả công việc");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
 
         descInput.setBackground(new java.awt.Color(204, 204, 204));
         descInput.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -260,6 +261,11 @@ public class TodoListMain extends javax.swing.JFrame {
         deadlineValidator.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(deadlineValidator, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 490, -1, -1));
         getContentPane().add(validatorSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homePage.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setPreferredSize(new java.awt.Dimension(1010, 680));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -614,6 +620,7 @@ public class TodoListMain extends javax.swing.JFrame {
     private javax.swing.JButton deleteTask;
     private javax.swing.JTextField descInput;
     private javax.swing.JTextField idInput;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
