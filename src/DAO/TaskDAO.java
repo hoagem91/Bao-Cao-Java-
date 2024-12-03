@@ -70,20 +70,32 @@ public class TaskDAO {
             return false;
         }
     }
-
+    
+    public boolean isTaskExist(int taskId) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM TASKLIST WHERE TASKID = ?";
+        try (Connection conn = new Connect().getConnection()) {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, taskId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0; // Trả về true nếu ID tồn tại
+                }
+            }
+        }
+        return false;
+    }
      // Phương thức xóa Task dựa trên TASKID
-    public boolean deleteTask(int taskId) {
-        String sql = "DELETE FROM Task WHERE TASKID = ?";
-        try (Connection conn = new Connect().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+    public boolean deleteTask(int taskId) throws SQLException {
+        if (!isTaskExist(taskId)) {
+            return false; // Trả về false nếu task không tồn tại
+        }
 
-            stmt.setInt(1, taskId);
-            
-            // Thực thi lệnh DELETE và kiểm tra xem có xóa được không
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException e) {
-            System.out.println("Lỗi khi xóa task: " + e.getMessage());
-            return false;
+        String sql = "DELETE FROM TASKLIST WHERE TASKID = ?";
+        try (Connection conn = new Connect().getConnection()) {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, taskId);
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0; // Trả về true nếu xóa thành công
         }
     }
     // Phương thức sửa Task dựa trên TASKID
