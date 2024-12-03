@@ -5,6 +5,7 @@
 package Interface;
 
 import database.Connect;
+import java.awt.Color;
 import java.sql.*; 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -69,7 +70,7 @@ public class TaskList extends javax.swing.JFrame {
 
         validatorDesc.setForeground(new java.awt.Color(255, 0, 51));
         validatorDesc.setToolTipText("");
-        getContentPane().add(validatorDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, -1, -1));
+        getContentPane().add(validatorDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 0, 0));
 
         validatorDelete.setForeground(new java.awt.Color(255, 0, 51));
         validatorDelete.setToolTipText("");
@@ -290,7 +291,67 @@ public class TaskList extends javax.swing.JFrame {
 
     private void idInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idInputActionPerformed
         // TODO add your handling code here:
+        String searchId = idInput.getText().trim(); // Lấy ID từ ô nhập
+        if (searchId.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập ID để tìm kiếm!");
+        } else {
+            searchTaskById(searchId); // Gọi hàm tìm kiếm
+        }
     }//GEN-LAST:event_idInputActionPerformed
+    
+    private void searchTaskById(String searchId) {
+    ResultSet rs = null;
+    Statement st = null;
+    Connection con = null;
+    try {
+        // Kết nối cơ sở dữ liệu
+        con = conn.getConnection();
+        st = con.createStatement();
+        String query = "SELECT * FROM TASKLIST WHERE taskID = '" + searchId + "'";
+        rs = st.executeQuery(query);
+
+        // Lấy thông tin metadata
+        ResultSetMetaData rsmd = rs.getMetaData();
+        DefaultTableModel model = (DefaultTableModel) TaskList.getModel();
+        int cols = rsmd.getColumnCount();
+        String[] colName = new String[cols];
+
+        for (int i = 0; i < cols; i++) {
+            colName[i] = rsmd.getColumnName(i + 1); // Lấy tên cột
+        }
+        model.setColumnIdentifiers(colName); // Đặt tên cột trong bảng
+
+        // Xóa dữ liệu cũ trong bảng
+        model.setRowCount(0);
+
+        // Kiểm tra dữ liệu
+        boolean found = false;
+        while (rs.next()) {
+            found = true;
+            String taskID = rs.getString(1);
+            String taskName = rs.getString(2);
+            String taskDesc = rs.getString(3);
+            String[] row = {taskID, taskName, taskDesc};
+            model.addRow(row); // Thêm dòng mới vào bảng
+        }
+
+        if (found) {
+            // Nếu tìm thấy, bôi xanh dòng đầu tiên
+            TaskList.setRowSelectionInterval(0, 0);
+            TaskList.setSelectionBackground(Color.GREEN); // Đặt màu nền bôi xanh
+            TaskList.setSelectionForeground(Color.WHITE); // Đặt màu chữ bôi xanh
+        } else {
+            JOptionPane.showMessageDialog(this, "Không tìm thấy công việc với ID: " + searchId);
+        }
+
+        // Đóng kết nối
+        rs.close();
+        st.close();
+        con.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 
     private void descInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descInputActionPerformed
         // TODO add your handling code here:
@@ -302,9 +363,10 @@ public class TaskList extends javax.swing.JFrame {
         // TODO add your handling code here:
         String title = titleInput.getText().trim();
         String desc = descInput.getText().trim();
-        String id = idInput.getText().trim();
+        String id = idInput1.getText().trim();
         if(title.isEmpty()){
             validatorName.setText("Vui lòng nhập tên công việc!");
+            validatorName.setBackground(Color.RED);
         }
         else{
             validatorName.setText("");
@@ -420,11 +482,11 @@ public class TaskList extends javax.swing.JFrame {
             }
             model.setColumnIdentifiers(colName);
             
-            while(rs.next()){
-                String taskID = rs.getString(1);
-                String taskName = rs.getString(2);
-                String taskDesc = rs.getString(3);
-                String[] row = {taskID,taskName,taskDesc};
+            while (rs.next()) {
+                String[] row = new String[cols];
+                for (int i = 0; i < cols; i++) {
+                    row[i] = rs.getString(i + 1);
+                }
                 model.addRow(row);
             }
             st.close();
