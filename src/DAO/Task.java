@@ -12,16 +12,14 @@ public class Task {
     private int id;
     private String name;
     private String description;
-    private String status;
-    private LocalDateTime createDate;
-    private LocalDateTime deadline;
+    private String createDate;
+    private String deadline;
 
     // Constructor
-    public Task(int id, String name, String description, String status, LocalDateTime createDate, LocalDateTime deadline) {
+    public Task(int id, String name, String description, String createDate, String deadline) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.status = status;
         this.createDate = createDate;
         this.deadline = deadline;
     }
@@ -54,27 +52,20 @@ public class Task {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDateTime createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
-    public LocalDateTime getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDateTime deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 
@@ -84,7 +75,6 @@ public class Task {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
                 ", createDate=" + createDate +
                 ", deadline=" + deadline +
                 '}';
