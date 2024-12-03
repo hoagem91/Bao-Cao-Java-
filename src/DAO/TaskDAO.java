@@ -14,21 +14,63 @@ import java.util.List;
  * @author Lenovo
  */
 public class TaskDAO {
-     public boolean addTask(Task task) {
-        String sql = "INSERT INTO Task (TASKID, TASKNAME, TASKDESC, STATUS, CREATEDATE, DEADLINE) VALUES (?, ?, ?, ?, ?, ?)";
-        try (Connection conn = new Connect().getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, task.getId());
-            stmt.setString(2, task.getName());
-            stmt.setString(3, task.getDescription());
-            stmt.setString(4, task.getStatus());
-            stmt.setTimestamp(5, Timestamp.valueOf(task.getCreateDate()));
-            stmt.setTimestamp(6, Timestamp.valueOf(task.getDeadline()));
-            return stmt.executeUpdate() > 0;
+     private final Connect connect;
+
+    public TaskDAO() {
+        connect = new Connect(); // Lớp Connect chịu trách nhiệm quản lý kết nối
+    }
+
+    // Phương thức lấy danh sách task từ cơ sở dữ liệu
+    public List<Task> getAllTasks() {
+        List<Task> tasks = new ArrayList<>();
+        String query = "SELECT * FROM TASKLIST";
+
+        try (Connection con = connect.getConnection();
+             PreparedStatement ps = con.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Task task = new Task(
+                    rs.getInt("taskID"),
+                    rs.getString("taskName"),
+                    rs.getString("taskDesc"),
+                    rs.getString("createDate"),
+                    rs.getString("deadLine")
+                );
+                tasks.add(task);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+
+        return tasks;
     }
+    /**
+ * Adds a new task to the database.
+ *
+ * @param task The Task object to be added.
+ * @return true if the task was successfully added, false otherwise.
+ */
+    public boolean addTask(Task task) {
+        String sql = "INSERT INTO TASKLIST (TASKID, TASKNAME, TASKDESC, CREATEDATE, DEADLINE) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = connect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, task.getId());
+            stmt.setString(2, task.getName());
+            stmt.setString(3, task.getDescription());
+            stmt.setString(4, task.getCreateDate());
+            stmt.setString(5, task.getDeadline());
+
+            // Execute the INSERT statement and check if a row was inserted
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error adding task: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
      // Phương thức xóa Task dựa trên TASKID
     public boolean deleteTask(int taskId) {
         String sql = "DELETE FROM Task WHERE TASKID = ?";
@@ -46,21 +88,21 @@ public class TaskDAO {
     }
     // Phương thức sửa Task dựa trên TASKID
     public boolean updateTask(Task task) {
-        String sql = "UPDATE Task SET TASKNAME = ?, TASKDESC = ?, STATUS = ?, CREATEDATE = ?, DEADLINE = ? WHERE TASKID = ?";
-        try (Connection conn = new Connect().getConnection();
+        String sql = "UPDATE TASKLIST SET TASKNAME = ?, TASKDESC = ?, CREATEDATE = ?, DEADLINE = ? WHERE TASKID = ?";
+        try (Connection conn = connect.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, task.getName());
             stmt.setString(2, task.getDescription());
-            stmt.setString(3, task.getStatus());
-            stmt.setTimestamp(4, Timestamp.valueOf(task.getCreateDate()));
-            stmt.setTimestamp(5, Timestamp.valueOf(task.getDeadline()));
-            stmt.setInt(6, task.getId());
-            
+            stmt.setString(3, task.getCreateDate());
+            stmt.setString(4, task.getDeadline());
+            stmt.setInt(5, task.getId());
+
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.out.println("Lỗi khi cập nhật task: " + e.getMessage());
             return false;
         }
     }
+
 }
