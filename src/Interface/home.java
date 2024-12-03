@@ -120,7 +120,7 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 120, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeimage.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 770, 490));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 450));
 
         pack();
         setLocationRelativeTo(null);
@@ -163,7 +163,7 @@ public class home extends javax.swing.JFrame {
                 // Đăng nhập thành công
                 JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
                 this.setVisible(false); // Ẩn trang đăng nhập
-                TaskList taskListForm = new TaskList(); // Chuyển sang màn hình danh sách công việc
+                TodoListMain taskListForm = new TodoListMain(); // Chuyển sang màn hình danh sách công việc
                 taskListForm.setVisible(true);
             } else {
                 // Đăng nhập thất bại
